@@ -1,0 +1,502 @@
+/* BOHEMIAN & CO. - Estética Dark Resort */
+:root {
+    /* Paleta de Cores - Terra Profunda & Luxo */
+    --bg-primary: #1A120B;
+    /* Espresso Profundo */
+    --bg-secondary: #2C1B18;
+    /* Terracota Escura / Argila */
+    --text-high: #F3E5D8;
+    /* Champagne / Osso */
+    --text-body: #C5B4A5;
+    /* Greige Quente */
+    --accent: #D4A373;
+    /* Cobre Suave */
+    --accent-glow: rgba(212, 163, 115, 0.3);
+
+    /* Tipografia */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+
+    /* Espaçamento */
+    --section-padding: 120px 8%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-body);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    /* Barra de Rolagem Personalizada */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--bg-primary);
+}
+
+/* FUNDO WEBGL - Atrás de todo o conteúdo */
+#webgl-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Atrás de todo o conteúdo */
+    pointer-events: none;
+    /* Permitir cliques através do conteúdo */
+}
+
+/* SOBREPOSIÇÃO DE GRÃO DE FILME */
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* NAVEGAÇÃO */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    z-index: 100;
+    mix-blend-mode: difference;
+}
+
+.brand-logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--text-high);
+    text-transform: lowercase;
+    /* Combina com a imagem */
+    display: flex;
+    align-items: baseline;
+}
+
+.logo-suffix {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    margin-left: 4px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.nav-links a {
+    color: var(--text-high);
+    text-decoration: none;
+    margin-left: 3rem;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* SEÇÃO HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: var(--section-padding);
+}
+
+.hero-bg-gradient {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 80vw;
+    height: 80vw;
+    background: radial-gradient(circle, rgba(212, 163, 115, 0.15) 0%, rgba(26, 18, 11, 0) 70%);
+    filter: blur(80px);
+    animation: floatLight 10s infinite alternate ease-in-out;
+    z-index: -1;
+}
+
+/* Estilo do conteúdo hero */
+.hero-content {
+    max-width: 800px;
+    position: relative;
+    /* Sombra de texto para profundidade contra fundo 3D */
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.eyebrow {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: 6rem;
+    line-height: 1;
+    color: var(--text-high);
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+h1 span {
+    display: block;
+    font-style: normal;
+    margin-left: 2rem;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 500px;
+    margin-bottom: 4rem;
+    border-left: 1px solid var(--accent);
+    padding-left: 2rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border: 1px solid var(--text-high);
+    color: var(--text-high);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: all 0.4s ease;
+}
+
+.btn-primary:hover {
+    background: var(--text-high);
+    color: var(--bg-primary);
+}
+
+/* SEÇÕES DE ROLAGEM */
+section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.philosophy {
+    justify-content: center;
+    text-align: center;
+}
+
+.big-text {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: 0.2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: -1;
+    white-space: nowrap;
+}
+
+.content-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    padding: 4rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 600px;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    padding: var(--section-padding);
+}
+
+.collection-item {
+    position: relative;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    border-radius: 4px;
+    filter: grayscale(20%);
+}
+
+.collection-item:hover {
+    transform: scale(1.02);
+    filter: grayscale(0%);
+}
+
+/* Imagens Locais (Instagram) */
+.item-1 {
+    background-image: linear-gradient(to bottom, transparent, rgba(26, 18, 11, 0.8)), url('img/insta_1.jpg');
+    margin-top: 50px;
+}
+
+.item-2 {
+    background-image: linear-gradient(to bottom, transparent, rgba(26, 18, 11, 0.8)), url('img/insta_2.jpg');
+    /* Item em destaque - levemente mais alto/centralizado */
+    height: 550px;
+    margin-top: -20px;
+}
+
+.item-3 {
+    background-image: linear-gradient(to bottom, transparent, rgba(26, 18, 11, 0.8)), url('img/insta_3.jpg');
+    margin-top: 100px;
+}
+
+.item-info {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+}
+
+.item-info h3 {
+    font-family: var(--font-heading);
+    color: var(--text-high);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ANIMAÇÕES */
+@keyframes floatLight {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translate(-30px, 50px) scale(1.1);
+        opacity: 0.5;
+    }
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h1 span {
+        margin-left: 0;
+    }
+
+    .hero-content {
+        padding-top: 100px;
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .item-2 {
+        margin-top: 0;
+    }
+
+    nav {
+        padding: 1.5rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    /* Simplificado para MVP */
+}
+
+/* ========================================
+   ESTILOS DA PÁGINA SOBRE
+   ======================================== */
+
+.about-page {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Sobre */
+.about-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--section-padding);
+    text-align: center;
+}
+
+.about-hero-content {
+    max-width: 800px;
+}
+
+/* Seções Sobre */
+.about-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--section-padding);
+}
+
+.content-wrapper {
+    max-width: 900px;
+    width: 100%;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--text-high);
+    margin-bottom: 3rem;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Seção História */
+.story-content p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-body);
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.story-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Grade de Valores */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.value-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    padding: 3rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.value-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-high);
+    margin-bottom: 1rem;
+}
+
+.value-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-body);
+}
+
+/* Seção Processo */
+.process-content p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-body);
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.process-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Rodapé Sobre */
+.about-footer {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-footer h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--text-high);
+    margin-bottom: 2rem;
+}
+
+/* Responsivo Mobile */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .story-content p,
+    .process-content p {
+        text-align: left;
+        font-size: 1rem;
+    }
+
+    .about-footer h2 {
+        font-size: 2rem;
+    }
+}

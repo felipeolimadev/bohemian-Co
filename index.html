@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bohemian & Co. | Timeless Elegance</title>
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Fundo WebGL -->
+    <div id="webgl-container"></div>
+
+    <!-- Sobreposição de Grão de Filme -->
+    <div class="grain-overlay"></div>
+
+    <!-- Navegação -->
+    <nav>
+        <a href="index.html" style="text-decoration: none;">
+            <div class="brand-logo">bohemian<span class="logo-suffix">&co.</span></div>
+        </a>
+        <div class="nav-links">
+            <a href="collection.html">Coleção</a>
+            <a href="sobre.html">Sobre</a>
+        </div>
+    </nav>
+
+    <!-- Contêiner de Rolagem -->
+    <main class="scroll-container">
+
+        <!-- Seção Hero -->
+        <section class="hero">
+            <div class="hero-bg-gradient"></div>
+            <div class="hero-content">
+                <span class="eyebrow fade-in-up">2025</span>
+                <h1 class="fade-in-up">Elegância <br> <span>Atemporal.</span></h1>
+                <p class="hero-description fade-in-up">
+                    Moda boho-contemporânea com toque Western
+                    Para mulheres de estilo livre, elegante e autêntico.
+                </p>
+                <a href="collection.html" class="btn-primary fade-in-up">Explorar Coleção</a>
+            </div>
+        </section>
+
+        <!-- Seção Filosofia -->
+        <section class="philosophy">
+            <div class="big-text parallax" data-speed="0.2">AUTÊNTICO</div>
+            <div class="content-card fade-in-up">
+                <h3>A Filosofia</h3>
+                <p style="margin-top: 1rem; line-height: 1.6;">
+                    Bohemian & Co. não é apenas uma marca; é um estado de espírito. Acreditamos na beleza das
+                    imperfeições naturais, no calor do sol e na liberdade da estrada.
+                </p>
+            </div>
+        </section>
+
+        <section class="collection-preview">
+            <div class="collection-grid">
+                <div class="collection-item item-1 fade-in-up">
+                    <div class="item-info">
+                        <h3>Brilho Matinal</h3>
+                        <p>Série Linho</p>
+                    </div>
+                </div>
+                <div class="collection-item item-2 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="item-info">
+                        <h3>Hora Dourada</h3>
+                        <p>Coleção Assinatura</p>
+                    </div>
+                </div>
+                <div class="collection-item item-3 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="item-info">
+                        <h3>Maré da Noite</h3>
+                        <p>Moda Resort</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <section style="height: 50vh; justify-content: center; flex-direction: column;">
+            <h2
+                style="font-family: var(--font-heading); font-size: 3rem; color: var(--text-high); margin-bottom: 2rem;">
+                Junte-se à Jornada</h2>
+            <div class="nav-links">
+                <a href="https://www.instagram.com/bohemian_andco/" target="_blank">Instagram</a>
+                <a href="https://api.whatsapp.com/message/GWBJEFLIBIKDD1?autoload=1&app_absent=0&utm_source=ig"
+                    target="_blank">Contato</a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script src="bg-animation.js"></script>
+</body>
+
+</html>
